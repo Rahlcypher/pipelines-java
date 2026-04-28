@@ -40,6 +40,6 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'myapp-rg'
     slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*jar'
+    package: '$(System.DefaultWorkingDirectory)/target/*jar'
     runtimeStack: 'JAVA|17-java17'
   
