@@ -9,27 +9,27 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - task: Maven@3
-#   inputs:
-#     mavenPomFile: 'pom.xml'
-#     mavenOptions: '-Xmx3072m'
-#     javaHomeOption: 'JDKVersion'
-#     jdkVersionOption: '1.11'
-#     jdkArchitectureOption: 'x64'
-#     publishJUnitResults: true
-#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-#     goals: 'clean test package'
-
 # Maven
-- task: Gradle@4
+- task: Maven@3
   inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'build'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'clean test package'
+
+# - task: Gradle@4
+#   inputs:
+#     gradleWrapperFile: 'gradlew'
+#     tasks: 'build'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/TEST-*.xml'
+#     javaHomeOption: 'JDKVersion'
+#     sonarQubeRunAnalysis: false
+#     spotBugsAnalysis: false
 
 
 - task: AzureWebApp@1
