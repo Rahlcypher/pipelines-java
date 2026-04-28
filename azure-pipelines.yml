@@ -30,3 +30,16 @@ steps:
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
+
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'mon-azure-connection'
+    appType: 'webAppLinux'
+    appName: 'mon-app-java-unique-champlein'
+    deployToSlotOrASE: true
+    resourceGroupName: 'myapp-rg'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*jar'
+    runtimeStack: 'JAVA|17-java17'
+  
